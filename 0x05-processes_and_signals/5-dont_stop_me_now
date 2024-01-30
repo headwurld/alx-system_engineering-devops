@@ -1,4 +1,18 @@
 #!/usr/bin/env bash
-# Kills the 4-to_infinity_and_beyond process
+# Start the 4-to_infinity_and_beyond process
+./4-to_infinity_and_beyond &
 
-kill "$(pgrep -f 4-to_infinity_and_beyond)"
+# Get the PID of the last background process
+pid=$!
+
+# Display a message
+echo "4-to_infinity_and_beyond process started with PID: $pid"
+
+# Wait for a moment (you can replace this with your actual use case)
+sleep 5
+
+# Use kill to stop the process
+kill $pid
+
+# Display a termination message
+echo "4-to_infinity_and_beyond process terminated"
