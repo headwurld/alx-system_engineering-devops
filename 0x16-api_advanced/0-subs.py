@@ -23,7 +23,10 @@ def number_of_subscribers(subreddit):
             subscribers = data['data']['subscribers']
             return subscribers
         else:
+            print("Error:", response.status_code)
+            print("Response Content:", response.content.decode())
             return 0  # Invalid subreddit or other error occurred
 
-    except requests.RequestException:
+    except requests.RequestException as e:
+        print("Request Exception:", e)
         return 0  # Request failed or network error
